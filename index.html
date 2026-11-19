@@ -3,11 +3,11 @@
 <title>Scroll Panda</title><style>
 *{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:transparent}
 #scroller{height:100vh;width:100%;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;scrollbar-width:thin}
-#track{height:220vh;position:relative}#stage{height:100vh;position:sticky;top:0;overflow:hidden;background:transparent}
-#panda{position:absolute;top:50%;left:0;transform:translateY(-50%);width:150px;height:150px;max-width:35vw;object-fit:contain;image-rendering:auto}
+#track{height:450vh;position:relative}#stage{height:100vh;position:sticky;top:0;overflow:hidden;background:transparent}
+#panda{position:absolute;top:50%;left:0;transform:translateY(-50%);width:clamp(220px,32vw,420px);height:auto;aspect-ratio:1;object-fit:contain;image-rendering:auto}
 #hint{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);font:12px Arial,sans-serif;color:#777;pointer-events:none;background:#ffffffb8;border-radius:10px;padding:5px 9px}
 </style></head><body>
-<div id="scroller" aria-label="Scroll to control panda animation" tabindex="0"><div id="track"><div id="stage"><canvas id="panda" width="150" height="150" role="img" aria-label="Animated panda controlled by scrolling"></canvas><div id="hint">Scroll here to move the panda ↕</div></div></div></div>
+<div id="scroller" aria-label="Scroll to control panda animation" tabindex="0"><div id="track"><div id="stage"><canvas id="panda" width="150" height="150" role="img" aria-label="Animated panda controlled by scrolling"></canvas><div id="hint">Scroll here to move the panda across the screen ↕</div></div></div></div>
 <script>
 const FRAME_COUNT=180,COLS=15,FRAME_W=150,FRAME_H=150;
 const scroller=document.getElementById('scroller'),stage=document.getElementById('stage'),canvas=document.getElementById('panda');
